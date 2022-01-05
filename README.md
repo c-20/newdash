@@ -8,14 +8,13 @@ reasons unknown but could be pdns/pdnc related
 
 pdns and pdnc are inactive
 
-also, dash is using GET (URL) actions instead of POST, though
+also, dash is using URL address instead of URL argument.
 
-prun should support the importation of file1=//dash-switch/on (note = is invalid for file1=)
+host//DASH-SWITCH/ON
 
-why file1=? good question, but it broke down to a URL when //dash-switch=on is the setting
+host//DASH-SWITCH/OFF
 
-at the moment there is no need, as there are no URL args ... just a URL ....
+previous was host/?//DASH-SWITCH/NEWVALUE which uses file1= as first
 
-need to work out how to iterate through POST again to restore that method
+argument unless =NEWVALUE, ... in which case .. it becomes a param pair ? idk
 
-also, prevent overflow in POST, in case that's how implosion occurred
