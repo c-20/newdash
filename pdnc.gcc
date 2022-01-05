@@ -1,0 +1,15 @@
+#name="$(echo $0 | sed -e "s/^\.\///" -e "s/\..*$//")"
+#echo -n "Compiling $name... "
+#gcc -o $name $name.c 2>&1 
+# | line 1-20 (currently no line command)
+# if [ "$1" = "-o" ] ; then
+#  [ "$CMDDIR" = "" ] && echo "CMDDIR unset." && exit 1
+#  cp $name $CMDDIR/$name
+#  echo -n "saved to $CMDDIR... "
+#  chmod +x $CMDDIR/$name
+#  echo -n "active... "
+#fi
+#echo "done"
+#exit 0
+
+gcc -o pdnc pdnc.c

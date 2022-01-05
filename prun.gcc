@@ -1,0 +1,6 @@
+src=prun.cpp
+out=prun
+gcc=g++
+libs="-lmicrohttpd -lcurl"
+$gcc -o $out $src $libs
+

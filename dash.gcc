@@ -1,0 +1,6 @@
+src=dash.cpp
+out=dash
+gcc=g++
+libs=-lmicrohttpd
+$gcc -o $out $src $libs
+

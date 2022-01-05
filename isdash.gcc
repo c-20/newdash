@@ -1,0 +1,36 @@
+# - as first parameter = cleanup / uninstall
+if [ "$1" = "-" ] ; then
+  # remove created source link
+  rm isdash.cpp 
+  # remove created program
+  rm isdash
+  # don't recompile it
+  exit 0
+fi
+
+echo "deprecated with conversion from isdash.cpp to isdash.h"
+echo "-lcurl ought to be included in target libs"
+
+# src=isdash.h
+# echo "refuses to find main in a header file"
+
+echo "+ HANDLE LINKS +"
+if ! ln -s isdash.h isdash.cpp ; then
+  if [ "$(ls -l isdash.cpp | sed 's/^.* -> //')" != "isdash.h" ] ; then
+    echo "isdash.cpp is not a symbolic link pointing to isdash.h"
+  else
+    echo "isdash.cpp was tested and appears to point to isdash.h"
+  fi
+fi
+
+src=isdash.cpp
+
+echo "+ COMPILE +"
+
+out=isdash
+gcc=g++
+libs=-lcurl
+defs=-DISDASHMAIN
+$gcc -o $out $src $defs $libs
+
+echo "+ DONE +"
